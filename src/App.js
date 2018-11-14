@@ -1,28 +1,47 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import './App.css'
+import Team from './Team'
 
 class App extends Component {
   render() {
+    let teams = [
+      {
+        id: 'all-star',
+        teamName: 'SDG All Stars',
+        initialScore: 0
+      },
+      {
+        id: 'c11',
+        teamName: 'Cohort XI',
+        initialScore: 42
+      },
+      {
+        id: 'c12',
+        teamName: 'Cohort XII',
+        initialScore: 3
+      },
+      {
+        id: 'staff',
+        teamName: 'Staff',
+        initalScore: 5
+      }
+    ]
+
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div>
+        <h1>My Scoreboard</h1>
+        <main>
+          {teams.map(team => (
+            <Team
+              key={team.id}
+              teamName={team.teamName}
+              initialScore={team.initialScore}
+            />
+          ))}
+        </main>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
